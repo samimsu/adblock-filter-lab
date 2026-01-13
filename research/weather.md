@@ -1,4 +1,4 @@
-# Research: Mitigating Privacy Management Tracking (XHR)
+# Research: Defeating weather.com Cookie Consent Notice
 
 ## Target
 
