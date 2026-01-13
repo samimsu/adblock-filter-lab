@@ -1,0 +1,16 @@
+!#if cap_html_filtering
+||bild.de^$doc,replace=/"adBlockWallEnabled":true/"adBlockWallEnabled":false/
+!#else
+bild.de##+js(rpnt, script, "adBlockWallEnabled":true, "adBlockWallEnabled":false)
+!#endif
+!#if !ext_ubol
+bild.de##+js(json-prune, CLIENT_STORE_INITIAL_STATE.pageAggregation.advertisement.adBlockWallEnabled)
+bild.de##+js(json-prune, CLIENT_STORE_INITIAL_STATE.pageAggregation.advertisement.adsOn)
+!#else
+bild.de##+js(trusted-replace-argument, JSON.parse, 0, repl:/"adBlockWallEnabled":true/"adBlockWallEnabled":false/, condition, adBlockWallEnabled)
+!#endif
+lemonde.fr##.gdpr-lmd-wall
+lemonde.fr##html,body:remove-class(popin-gdpr-no-scroll)
+reddit.com##shreddit-ad-post
+||privacy-mgmt.com^$xhr,domain=weather.com
+||cdn.privacy-mgmt.com^$script,domain=weather.com
